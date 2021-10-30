@@ -1,9 +1,11 @@
-const Frame = require('./Frame');
 const { DOOR_HEIGHT, DOOR_WIDTH } = require('./utils');
 
-class Door extends Frame {
-  constructor() {
-    super(DOOR_HEIGHT, DOOR_WIDTH);
+class Door {
+  static _height = DOOR_HEIGHT;
+  static _width = DOOR_WIDTH;
+
+  static getArea() {
+    return this._height * this._width;
   }
 }
 
