@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (_req, res) => {
-  const parede1 = new Wall(2, 2, 1, 0);
+  const parede1 = new Wall(2.2, 2, 1, 0);
   res.status(200).send(`
   Área da porta: ${Door.getArea()} m2\n
   Área da janela: ${Window.getArea()} m2\n

@@ -4,7 +4,7 @@ const Window = require('./Window');
 
 class Wall {
   constructor(height, width, doorCount, windowCount) {
-    this.verifyHeight(height);
+    this.verifyHeight(height, doorCount);
     this.verifyArea(height, width, doorCount, windowCount);
 
     this.height = height;
@@ -13,10 +13,17 @@ class Wall {
     this.windowCount = windowCount;
   }
 
-  verifyHeight(height) {
+  verifyHeight(height, doorCount) {
     if (height < 1.0 || height > 15.0) {
       throw new AppError(
         'Parede não pode ser menor que 1m ou maior que 15m',
+        400
+      );
+    }
+
+    if (doorCount > 0 && height < Door.getHeight() + 0.3) {
+      throw new AppError(
+        'A altura de paredes com porta deve ser, no mínimo, 30 centímetros maior que a altura da porta',
         400
       );
     }

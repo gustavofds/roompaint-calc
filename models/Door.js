@@ -7,6 +7,10 @@ class Door {
   static getArea() {
     return this._height * this._width;
   }
+
+  static getHeight() {
+    return this._height;
+  }
 }
 
 module.exports = Door;
