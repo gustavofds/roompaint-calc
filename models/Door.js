@@ -1,4 +1,4 @@
-const { DOOR_HEIGHT, DOOR_WIDTH } = require('./utils');
+const { DOOR_HEIGHT, DOOR_WIDTH } = require('../utils/standardMeasures');
 
 class Door {
   static _height = DOOR_HEIGHT;

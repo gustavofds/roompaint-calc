@@ -1,4 +1,4 @@
-const { WINDOW_HEIGHT, WINDOW_WIDTH } = require('./utils');
+const { WINDOW_HEIGHT, WINDOW_WIDTH } = require('../utils/standardMeasures');
 
 class Window {
   static _height = WINDOW_HEIGHT;
