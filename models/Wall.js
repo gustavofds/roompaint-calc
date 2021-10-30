@@ -56,7 +56,7 @@ class Wall {
   }
 
   getWindowsArea() {
-    Window.getArea() * this.windowCount;
+    return Window.getArea() * this.windowCount;
   }
 
   getPaintableArea() {
