@@ -47,8 +47,20 @@ class Wall {
     return true;
   }
 
-  getArea() {
+  getTotalArea() {
     return this.height * this.width;
+  }
+
+  getDoorsArea() {
+    return Door.getArea() * this.doorCount;
+  }
+
+  getWindowsArea() {
+    Window.getArea() * this.windowCount;
+  }
+
+  getPaintableArea() {
+    return this.getTotalArea() - (this.getDoorsArea() + this.getWindowsArea());
   }
 }
 
