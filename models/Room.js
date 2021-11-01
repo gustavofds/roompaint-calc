@@ -1,6 +1,3 @@
-const AppError = require('../utils/AppError');
-const Wall = require('./Wall');
-
 class Room {
   constructor(wallsArray) {
     this.wallsArray = wallsArray;
