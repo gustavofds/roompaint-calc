@@ -1,3 +1,5 @@
+import sendRoomData from './sendRoomData.js';
+
 const wallsForm = document.getElementById('walls-form');
 
 wallsForm.addEventListener('submit', (ev) => {
@@ -20,5 +22,5 @@ wallsForm.addEventListener('submit', (ev) => {
     index++;
   }
 
-  console.log(wallsData);
+  sendRoomData();
 });
