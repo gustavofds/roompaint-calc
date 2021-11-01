@@ -727,6 +727,17 @@ eval("\n\nvar forEach = __webpack_require__(/*! foreach */ \"./node_modules/fore
 
 /***/ }),
 
+/***/ "./public/js/errors.js":
+/*!*****************************!*\
+  !*** ./public/js/errors.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"showError\": () => (/* binding */ showError)\n/* harmony export */ });\nconst hideError = () => {\n  const el = document.querySelector('.error');\n  if (el) el.parentElement.removeChild(el);\n};\n\nconst showError = (msg, time = 12) => {\n  hideError();\n  const markup = `<div class=\"error\">${msg}</div>`;\n  document.querySelector('body').insertAdjacentHTML('afterbegin', markup);\n  window.setTimeout(hideError, time * 1000);\n};\n\n\n//# sourceURL=webpack://roompaint-calc/./public/js/errors.js?");
+
+/***/ }),
+
 /***/ "./public/js/getFormData.js":
 /*!**********************************!*\
   !*** ./public/js/getFormData.js ***!
@@ -745,7 +756,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _getFormData_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getFormData.js */ \"./public/js/getFormData.js\");\n/* harmony import */ var _sendRoomData_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sendRoomData.js */ \"./public/js/sendRoomData.js\");\n\n\n\nconst wallsForm = document.getElementById('walls-form');\n\nwallsForm.addEventListener('submit', async (ev) => {\n  ev.preventDefault();\n\n  const wallsData = (0,_getFormData_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n  await (0,_sendRoomData_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(wallsData);\n});\n\n\n//# sourceURL=webpack://roompaint-calc/./public/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _getFormData_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getFormData.js */ \"./public/js/getFormData.js\");\n/* harmony import */ var _sendRoomData_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sendRoomData.js */ \"./public/js/sendRoomData.js\");\n/* harmony import */ var _errors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./errors */ \"./public/js/errors.js\");\n/* provided dependency */ var console = __webpack_require__(/*! ./node_modules/console-browserify/index.js */ \"./node_modules/console-browserify/index.js\");\n\n\n\n\nconst wallsForm = document.getElementById('walls-form');\n\nwallsForm.addEventListener('submit', async (ev) => {\n  ev.preventDefault();\n\n  const wallsData = (0,_getFormData_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n  const data = await (0,_sendRoomData_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(wallsData);\n\n  if (data.error) {\n    (0,_errors__WEBPACK_IMPORTED_MODULE_2__.showError)(data.message);\n  } else {\n    console.log(data);\n  }\n});\n\n\n//# sourceURL=webpack://roompaint-calc/./public/js/index.js?");
 
 /***/ }),
 
@@ -756,7 +767,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _get
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n/* provided dependency */ var console = __webpack_require__(/*! ./node_modules/console-browserify/index.js */ \"./node_modules/console-browserify/index.js\");\n\n\nconst POST_URL = '/api/paint';\n\nconst sendRoomData = async (wallsArr) => {\n  try {\n    const res = await axios__WEBPACK_IMPORTED_MODULE_0___default()({\n      method: 'POST',\n      url: POST_URL,\n      data: wallsArr,\n    });\n\n    console.log(res.data);\n  } catch (err) {\n    console.log(JSON.parse(err.request.response).message);\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sendRoomData);\n\n\n//# sourceURL=webpack://roompaint-calc/./public/js/sendRoomData.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconst POST_URL = '/api/paint';\n\nconst sendRoomData = async (wallsArr) => {\n  try {\n    const res = await axios__WEBPACK_IMPORTED_MODULE_0___default()({\n      method: 'POST',\n      url: POST_URL,\n      data: wallsArr,\n    });\n\n    return res.data;\n  } catch (err) {\n    return {\n      error: true,\n      message: JSON.parse(err.request.response).message,\n    };\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sendRoomData);\n\n\n//# sourceURL=webpack://roompaint-calc/./public/js/sendRoomData.js?");
 
 /***/ }),
 

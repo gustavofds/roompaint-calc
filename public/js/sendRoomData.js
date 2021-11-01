@@ -10,9 +10,12 @@ const sendRoomData = async (wallsArr) => {
       data: wallsArr,
     });
 
-    console.log(res.data);
+    return res.data;
   } catch (err) {
-    console.log(JSON.parse(err.request.response).message);
+    return {
+      error: true,
+      message: JSON.parse(err.request.response).message,
+    };
   }
 };
 
