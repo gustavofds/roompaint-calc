@@ -1,4 +1,3 @@
 {
-  "singleQuote": true,
-  "prettier.disableLanguages": ["ejs"]
+  "singleQuote": true
 }

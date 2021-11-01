@@ -8,7 +8,6 @@
   </head>
   <body>
     <h2>Calcule quantas latas de tinta irá precisar</h2>
-    <br />
     <h3>Dados da Parede</h3>
     <form id="walls-form" action="">
       <% new Array(wallsQty).fill(undefined).forEach((wall, index) => { %>
@@ -16,5 +15,6 @@
       <% }) %>      
       <button type="submit" id="send-button">Calcular</button>
     </form>
+    <script src="/js/index.js"></script>
   </body>
 </html>
