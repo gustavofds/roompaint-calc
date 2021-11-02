@@ -118,19 +118,19 @@ describe('A classe parede', () => {
 
   describe('Deve retornar erros', () => {
     it('Caso a parede tenha menos que 1m de altura', () => {
-      expect(() => new Wall(0.9, 2, 0, 0)).to.throw(Error);
+      expect(() => new Wall(0.9, 2, 0, 0)).to.throw(AppError);
     });
 
     it('Caso a parede tenha mais que 15m de altura', () => {
-      expect(() => new Wall(16, 2, 0, 0)).to.throw(Error);
+      expect(() => new Wall(16, 2, 0, 0)).to.throw(AppError);
     });
 
     it('Caso a parede que tenha porta seja menos que 30cm maior que a porta', () => {
-      expect(() => new Wall(2.1, 5, 1, 0)).to.throw(Error);
+      expect(() => new Wall(2.1, 5, 1, 0)).to.throw(AppError);
     });
 
     it('Caso o total da área de portas e janelas seja mais que 50% da área da parede', () => {
-      expect(() => new Wall(3, 2, 1, 1)).to.throw(Error);
+      expect(() => new Wall(3, 2, 1, 1)).to.throw(AppError);
     });
   });
 });
