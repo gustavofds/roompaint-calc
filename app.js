@@ -4,6 +4,7 @@ const cors = require('cors');
 const errorHandler = require('./controllers/errorController');
 const paintRoutes = require('./routes/paintRouter');
 const viewRouter = require('./routes/viewRouter');
+const AppError = require('./utils/AppError');
 
 const app = express();
 
@@ -17,6 +18,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', viewRouter);
 app.use('/api/paint', paintRoutes);
+
+app.all('*', (req, res, next) => {
+  next(new AppError('Não encontrado', 404));
+});
 
 app.use(errorHandler);
 
