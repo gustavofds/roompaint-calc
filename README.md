@@ -14,17 +14,18 @@ Os tamanhos de latas de tinta são:
 ## Como rodar a aplicação localmente
 
 1. Clone o repositório utilizando `git clone`
-2. Instale as dependências
 
+2. Instale as dependências
 - `npm install`
 
 3. Opcionalmente, crie na raiz da aplicação um arquivo '.env' para definir a variável de ambiente da porta a ser utilizada, por exemplo:
-
 - `PORT=8000`
 
 4. Rode a aplicação
-
 - `npm start`
+
+5. Para executar os testes
+- `npm test`
 
 ## O que foi desenvolvido
 
