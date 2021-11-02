@@ -1,5 +1,31 @@
 # Roompaint Calc
 
+Trata-se de uma aplicação que ajuda o usuário a calcular a quantidade de tinta necessária para pintar uma sala.
+
+O usuário informa as medidas de cada parede da sala, bem como a quantidade de portas e janelas cada parede tem, e a aplicação traz como resultado a quantidade de latas de tinta de cada tamanho que são necessárias para a pintura.
+
+Os tamanhos de latas de tinta são:
+
+- 18 L
+- 3,6 L
+- 2,5 L
+- 0,5 L
+
+## Como rodar a aplicação localmente
+
+1. Clone o repositório utilizando `git clone`
+2. Instale as dependências
+
+- `npm install`
+
+3. Opcionalmente, crie na raiz da aplicação um arquivo '.env' para definir a variável de ambiente da porta a ser utilizada, por exemplo:
+
+- `PORT=8000`
+
+4. Rode a aplicação
+
+- `npm start`
+
 ## O que foi desenvolvido
 
 Aplicação Node/Express utilizando a arquitetura MVC, com os seguintes endpoints:
