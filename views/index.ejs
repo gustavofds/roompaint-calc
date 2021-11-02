@@ -7,8 +7,9 @@
     <title>Roompaint Calc</title>
   </head>
   <body>
-    <h2>Calcule quantas latas de tinta irá precisar</h2>
-    <h3>Dados da Parede</h3>
+    <h2>Calcule quantas latas de tinta irá precisar!</h2>
+    <p>Informe as medidas de cada parede e quantas portas/janelas cada uma tem. Ao final, iremos dizer quantas latas de tinta de cada tamanho você precisará para pintar sua sala.</p>
+    <h3>Dados das Paredes</h3>
     <form id="walls-form" action="">
       <% new Array(wallsQty).fill(undefined).forEach((wall, index) => { %>
         <%- include('wallInput', { index }); %>
