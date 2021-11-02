@@ -25,6 +25,10 @@ describe('A classe porta', () => {
       expect(Door).to.haveOwnProperty('getArea');
     });
 
+    it('Método deve ser uma função', () => {
+      expect(Door.getArea).to.be.a('function');
+    });
+
     it('Método deve retornar 1.52m²', () => {
       expect(Door.getArea()).to.be.equal(1.52);
     });
@@ -33,6 +37,10 @@ describe('A classe porta', () => {
   describe('Deve ter o método estático que retorna altura', () => {
     it('Método deve existir', () => {
       expect(Door).to.haveOwnProperty('getHeight');
+    });
+
+    it('Método deve ser uma função', () => {
+      expect(Door.getHeight).to.be.a('function');
     });
 
     it('Método deve retornar a altura da porta', () => {
