@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const POST_URL = '/api/paint';
 
-const sendRoomData = async (wallsArr) => {
+const fetchResults = async (wallsArr) => {
   try {
     const res = await axios({
       method: 'POST',
@@ -19,4 +19,4 @@ const sendRoomData = async (wallsArr) => {
   }
 };
 
-export default sendRoomData;
+export default fetchResults;

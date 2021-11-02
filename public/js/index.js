@@ -1,5 +1,5 @@
 import getFormData from './getFormData';
-import sendRoomData from './sendRoomData';
+import fetchResults from './fetchResults';
 import { showError } from './errorHandler';
 import renderResults from './renderResults';
 
@@ -10,7 +10,7 @@ wallsForm.addEventListener('submit', async (ev) => {
 
   const wallsData = getFormData();
 
-  const data = await sendRoomData(wallsData);
+  const data = await fetchResults(wallsData);
 
   if (data.error) {
     showError(data.message);
