@@ -727,14 +727,14 @@ eval("\n\nvar forEach = __webpack_require__(/*! foreach */ \"./node_modules/fore
 
 /***/ }),
 
-/***/ "./public/js/errors.js":
-/*!*****************************!*\
-  !*** ./public/js/errors.js ***!
-  \*****************************/
+/***/ "./public/js/errorHandler.js":
+/*!***********************************!*\
+  !*** ./public/js/errorHandler.js ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"showError\": () => (/* binding */ showError)\n/* harmony export */ });\nconst hideError = () => {\n  const el = document.querySelector('.error');\n  if (el) el.parentElement.removeChild(el);\n};\n\nconst showError = (msg, time = 12) => {\n  hideError();\n  const markup = `<div class=\"error\">${msg}</div>`;\n  document.querySelector('body').insertAdjacentHTML('afterbegin', markup);\n  window.setTimeout(hideError, time * 1000);\n};\n\n\n//# sourceURL=webpack://roompaint-calc/./public/js/errors.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"showError\": () => (/* binding */ showError)\n/* harmony export */ });\nconst hideError = () => {\n  const el = document.querySelector('.error');\n  if (el) el.parentElement.removeChild(el);\n};\n\nconst showError = (msg, time = 12) => {\n  hideError();\n  const markup = `<div class=\"error\">${msg}</div>`;\n  document.querySelector('body').insertAdjacentHTML('afterbegin', markup);\n  window.setTimeout(hideError, time * 1000);\n};\n\n\n//# sourceURL=webpack://roompaint-calc/./public/js/errorHandler.js?");
 
 /***/ }),
 
@@ -756,7 +756,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _getFormData_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getFormData.js */ \"./public/js/getFormData.js\");\n/* harmony import */ var _sendRoomData_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sendRoomData.js */ \"./public/js/sendRoomData.js\");\n/* harmony import */ var _errors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./errors */ \"./public/js/errors.js\");\n/* provided dependency */ var console = __webpack_require__(/*! ./node_modules/console-browserify/index.js */ \"./node_modules/console-browserify/index.js\");\n\n\n\n\nconst wallsForm = document.getElementById('walls-form');\n\nwallsForm.addEventListener('submit', async (ev) => {\n  ev.preventDefault();\n\n  const wallsData = (0,_getFormData_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n  const data = await (0,_sendRoomData_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(wallsData);\n\n  if (data.error) {\n    (0,_errors__WEBPACK_IMPORTED_MODULE_2__.showError)(data.message);\n  } else {\n    console.log(data);\n  }\n});\n\n\n//# sourceURL=webpack://roompaint-calc/./public/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _getFormData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getFormData */ \"./public/js/getFormData.js\");\n/* harmony import */ var _sendRoomData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sendRoomData */ \"./public/js/sendRoomData.js\");\n/* harmony import */ var _errorHandler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./errorHandler */ \"./public/js/errorHandler.js\");\n/* harmony import */ var _renderResults__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./renderResults */ \"./public/js/renderResults.js\");\n\n\n\n\n\nconst wallsForm = document.getElementById('walls-form');\n\nwallsForm.addEventListener('submit', async (ev) => {\n  ev.preventDefault();\n\n  const wallsData = (0,_getFormData__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n  const data = await (0,_sendRoomData__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(wallsData);\n\n  if (data.error) {\n    (0,_errorHandler__WEBPACK_IMPORTED_MODULE_2__.showError)(data.message);\n  } else {\n    (0,_renderResults__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(data);\n  }\n});\n\n\n//# sourceURL=webpack://roompaint-calc/./public/js/index.js?");
+
+/***/ }),
+
+/***/ "./public/js/renderResults.js":
+/*!************************************!*\
+  !*** ./public/js/renderResults.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst renderPaintStr = (paintNeeded, bucketSize) => {\n  if (paintNeeded === 0) return '';\n\n  const pluralStr = paintNeeded > 1 ? 's' : '';\n\n  return `<li>${paintNeeded} lata${pluralStr} de ${bucketSize}</li>`;\n};\n\nconst renderResults = (data) => {\n  document.getElementsByTagName('body')[0].innerHTML = `\n  <h3>Resultados:</h3>\n  <p>Área útil a ser pintada: ${data.totalPaintableArea.toFixed(2)} m²</p>\n  <p>Latas de tinta necessárias:</p>\n  <ul>    \n    ${renderPaintStr(data.paintNeeded.gal18, '18 L')}\n    ${renderPaintStr(data.paintNeeded.gal3d6, '3,6 L')}\n    ${renderPaintStr(data.paintNeeded.gal2d5, '2,5 L')}\n    ${renderPaintStr(data.paintNeeded.gal0d5, '0,5 L')}\n  </ul>\n  `;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderResults);\n\n\n//# sourceURL=webpack://roompaint-calc/./public/js/renderResults.js?");
 
 /***/ }),
 

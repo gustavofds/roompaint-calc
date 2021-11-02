@@ -1,6 +1,7 @@
-import getFormData from './getFormData.js';
-import sendRoomData from './sendRoomData.js';
-import { showError } from './errors';
+import getFormData from './getFormData';
+import sendRoomData from './sendRoomData';
+import { showError } from './errorHandler';
+import renderResults from './renderResults';
 
 const wallsForm = document.getElementById('walls-form');
 
@@ -14,6 +15,6 @@ wallsForm.addEventListener('submit', async (ev) => {
   if (data.error) {
     showError(data.message);
   } else {
-    console.log(data);
+    renderResults(data);
   }
 });
