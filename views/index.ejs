@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roompaint Calc</title>
+  </head>
+  <body>
+    <h2>Calcule quantas latas de tinta irá precisar</h2>
+    <h3>Dados da Parede</h3>
+    <form id="walls-form" action="">
+      <% new Array(wallsQty).fill(undefined).forEach((wall, index) => { %>
+        <%- include('wallInput', { index }); %>
+      <% }) %>      
+      <button type="submit" id="send-button">Calcular</button>
+    </form>
+    <script src="/js/bundle.js"></script>
+  </body>
+</html>
