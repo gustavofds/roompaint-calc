@@ -31,14 +31,14 @@ Os tamanhos de latas de tinta são:
 
 Aplicação Node/Express utilizando a arquitetura MVC, com os seguintes endpoints:
 
-- POST /api/paint
+- POST `/api/paint`
 
   - Recebe uma requisição do tipo POST contendo um body do tipo JSON, que deve ser um array de objetos, sendo que cada objeto representa uma parede, com suas respectivas medidas e quantidade de portas e janelas:
     ![body da requisicao post](./public/images/post-body.png)
   - O endpoint retorna um objeto JSON com a área útil total a ser pintada, bem como com a quantidade de latas de cada tamanho que serão necessárias:
     ![body da resposta](./public/images/post-response.png)
 
-- GET /
+- GET `/`
   - Renderiza uma interface SSR (server-side rendered), a qual disponibiliza um formulário para o usuário digitar os dados de cada uma das 4 paredes da sala a ser pintada. Quando o usuário submete o formulário, é feita uma requisição POST para o endpoint `/api/paint`, acima descrito, e o resultado é renderizado na tela para o usuário.
 
 ## Regras de negócio
