@@ -1,27 +1,51 @@
-<div id="wall-<%= index %>-data">
-  <p>Parede <%= (index + 1) %></p>
-  <div>
-    <label
-      >Altura
-      <input id="wall-height-<%= index %>" type="number" value="0" step="0.1" />
+<div id="wall-<%= index %>-data" class="content">
+  <p class="title is-4">Parede <%= (index + 1) %></p>
+  <div class="field">
+    <label class="control">Altura
+      <input
+        class="input"
+        id="wall-height-<%= index %>"
+        type="number"
+        value="0"
+        step="0.1"
+        onClick="this.select();"
+      />
     </label>
   </div>
-  <div>
-    <label
-      >Largura
-      <input id="wall-width-<%= index %>" type="number" value="0" step="0.1" />
+  <div class="field">
+    <label class="control">Largura
+      <input
+        class="input"
+        id="wall-width-<%= index %>"
+        type="number"
+        value="0"
+        step="0.1"
+        onClick="this.select();"
+      />
     </label>
   </div>
-  <div>
-    <label
-      >Quantidade de portas
-      <input id="doors-count-<%= index %>" type="number" value="0" step="1" />
+  <div class="field">
+    <label class="control">Quantidade de portas
+      <input
+        class="input"
+        id="doors-count-<%= index %>"
+        type="number"
+        value="0"
+        step="1"
+        onClick="this.select();"
+      />
     </label>
   </div>
-  <div>
-    <label
-      >Quantidade de janelas
-      <input id="windows-count-<%= index %>" type="number" value="0" step="1" />
+  <div class="field">
+    <label class="control">Quantidade de janelas
+      <input
+        class="input"
+        id="windows-count-<%= index %>"
+        type="number"
+        value="0"
+        step="1"
+        onClick="this.select();"
+      />
     </label>
   </div>
 </div>

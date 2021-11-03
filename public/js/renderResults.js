@@ -7,10 +7,13 @@ const renderPaintStr = (paintNeeded, bucketSize) => {
 };
 
 const renderResults = (data) => {
-  document.getElementsByTagName('body')[0].innerHTML = `
-  <h3>Resultados:</h3>
-  <p>Área útil a ser pintada: ${data.totalPaintableArea.toFixed(2)} m²</p>
-  <p>Latas de tinta necessárias:</p>
+  document.querySelector('.content').innerHTML = `
+  <h3 class="title is-2">Resultados:</h3>
+  <br/>
+  <p class="subtitle">Área útil a ser pintada: ${data.totalPaintableArea.toFixed(
+    2
+  )} m²</p>
+  <p class="subtitle">Latas de tinta necessárias:</p>  
   <ul>    
     ${renderPaintStr(data.paintNeeded.gal18, '18 L')}
     ${renderPaintStr(data.paintNeeded.gal3d6, '3,6 L')}
