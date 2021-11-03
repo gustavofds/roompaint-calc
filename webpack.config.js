@@ -8,5 +8,5 @@ module.exports = {
     filename: 'bundle.js',
   },
   plugins: [new NodePolyfillPlugin()],
-  mode: 'development',
+  mode: 'production',
 };
