@@ -8,3 +8,7 @@ body {
 .section {
   flex: 1;
 }
+
+li {
+  font-size: 1.25rem;
+}
