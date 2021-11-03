@@ -1,0 +1,10 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: azure;
+}
+
+.section {
+  flex: 1;
+}

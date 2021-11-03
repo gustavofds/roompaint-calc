@@ -5,7 +5,9 @@ const hideError = () => {
 
 export const showError = (msg, time = 12) => {
   hideError();
-  const markup = `<div class="error">${msg}</div>`;
-  document.querySelector('body').insertAdjacentHTML('afterbegin', markup);
+  const markup = `<div class="notification is-danger error">${msg}</div>`;
+  document.querySelector('.content').insertAdjacentHTML('afterbegin', markup);
+
+  window.scrollTo(0, 0);
   window.setTimeout(hideError, time * 1000);
 };

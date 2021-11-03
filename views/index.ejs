@@ -8,27 +8,29 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Roompaint Calc</title>
   </head>
-  <body>
-    <section class="section">
-      <div class="container">
+  <body>   
+    <section class="hero is-link">
+      <div class="hero-body">
         <h2 class="title is-2">Calcule quantas latas de tinta irá precisar!</h2>
         <p class="subtitle">Informe as medidas de cada parede e quantas portas/janelas cada uma tem. Ao final, iremos dizer quantas latas de tinta de cada tamanho você precisará para pintar sua sala.</p>
-        <div>
-          <h3 class="title is-3">Dados das Paredes</h3>
-          <form id="walls-form" action="">
-            <% new Array(wallsQty).fill(undefined).forEach((wall, index) => { %>
-              <%- include('wallInput', { index }); %>
-            <% }) %>
-            <div class="field">
-              <div class="control">
-                <button type="submit" id="send-button" class="button is-link">Calcular</button>
-              </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="content">
+        <h3 class="title is-3">Dados das Paredes</h3>
+        <form id="walls-form" action="">
+          <% new Array(wallsQty).fill(undefined).forEach((wall, index) => { %>
+            <%- include('wallInput', { index }); %>
+          <% }) %>
+          <div class="field">
+            <div class="control">
+              <button type="submit" id="send-button" class="button is-link">Calcular</button>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </section>
     <script src="/js/bundle.js"></script>
