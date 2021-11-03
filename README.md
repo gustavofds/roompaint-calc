@@ -11,6 +11,9 @@ Os tamanhos de latas de tinta são:
 - 2,5 L
 - 0,5 L
 
+A aplicação pode ser consultada em produção no seguinte link:
+- https://roompaint-calc.herokuapp.com/
+
 ## Como rodar a aplicação localmente
 
 1. Clone o repositório utilizando `git clone`
